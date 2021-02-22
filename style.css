@@ -7,3 +7,6 @@ Author URI:     http: //vandraren.ru/
 Template:       storefront
 Version:        1.0.0
 */
+.test3 {
+  border: 1px solid red;
+}
