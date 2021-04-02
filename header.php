@@ -31,44 +31,39 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <div class="user-menu">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart.html"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-user"></i> Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
-                        </ul>
-                    </div>
-
-
-					<?php
-      
-		wp_nav_menu( [
-			'theme_location'  => 'top_left',
-			'menu'            => '', 
-			'container'       => 'div', 
-			'container_class' => 'user-menu', 
-			'container_id'    => '',
-			'menu_class'      => 'menu', 
-			'menu_id'         => '',
-			'echo'            => true,
-			'fallback_cb'     => 'wp_page_menu',
-			'before'          => '',
-			'after'           => '',
-			'link_before'     => '<i class="fa fa-user"></i>',
-			'link_after'      => '',
-			'items_wrap'      => '<ul>%3$s</ul>',
-			'depth'           => 0,
-			'walker'          => '',
-		] );
-
-        ?> 
-
+                   
+    <?php 
+    /**
+	 * Hook: myshop_top_left_menu.
+	 *
+	 * @hooked top_left_menu - 10	
+	 */
+	do_action('myshop_top_left_menu');
+    ?> 
                 </div>
-                
+          
                 <div class="col-md-4">
+
+
+                    
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
                     <div class="header-right">
+
                         <ul class="list-unstyled list-inline">
                             <li class="dropdown dropdown-small">
                                 <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
@@ -89,6 +84,29 @@
                             </li>
                         </ul>
                     </div>
+
+                    <div class="header-right">
+                    <?php 
+    /**
+	 * Hook: myshop_top_right_menu.
+	 *
+	 * @hooked top_right_menu - 10	
+	 */
+	do_action('myshop_top_right_menu');
+    ?>
+                    <?php 
+    /**
+	 * Hook: myshop_top_right_menu.
+	 *
+	 * @hooked top_right_menu - 10	
+	 */
+	do_action('myshop_top_right_menu');
+    ?>
+                    </div>
+
+                
+ 
+
                 </div>
             </div>
         </div>
@@ -122,24 +140,18 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div> 
-				<?php
-        wp_nav_menu( array(
-            'theme_location'    => 'primary',
-            'depth'             => 2,
-            'container'         => 'div',
-            'container_class'   => 'collapse navbar-collapse',
-            'container_id'      => 'bs-example-navbar-collapse-1',
-            'menu_class'        => 'nav navbar-nav',
-            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-            'walker'            => new WP_Bootstrap_Navwalker(),
-        ) );
+	<?php
+    /**
+	 * Hook: myshop_primary_top_menu.
+	 *
+	 * @hooked primary_top_menu - 10	
+	 */
+	do_action('myshop_primary_top_menu');
+       
         ?> 
             </div>
         </div>
-    </div> <!-- End mainmenu area -->
-
-
-    
+    </div> <!-- End mainmenu area -->   
 
 	<?php
 	/**
