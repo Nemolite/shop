@@ -31,20 +31,33 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                   
-    <?php 
-    /**
-	 * Hook: myshop_top_left_menu.
-	 *
-	 * @hooked top_left_menu - 10	
-	 */
-	do_action('myshop_top_left_menu');
-    ?> 
+                  					<?php
+      
+		wp_nav_menu( [
+			'theme_location'  => 'top_left',
+			'menu'            => '', 
+			'container'       => 'div', 
+			'container_class' => 'user-menu', 
+			'container_id'    => '',
+			'menu_class'      => 'menu', 
+			'menu_id'         => '',
+			'echo'            => true,
+			'fallback_cb'     => 'wp_page_menu',
+			'before'          => '',
+			'after'           => '',
+			'link_before'     => '<i class="fa fa-user"></i>',
+			'link_after'      => '',
+			'items_wrap'      => '<ul>%3$s</ul>',
+			'depth'           => 0,
+			'walker'          => '',
+		] );
+
+        ?> 
+
                 </div>
-          
+                
                 <div class="col-md-4">
                     <div class="header-right">
-
                         <ul class="list-unstyled list-inline">
                             <li class="dropdown dropdown-small">
                                 <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
@@ -64,11 +77,12 @@
                                 </ul>
                             </li>
                         </ul>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
     </div> <!-- End header area -->
+
 
 
 	<div class="site-branding-area">
@@ -82,62 +96,16 @@
                 
                 <div class="col-sm-6">
                     <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                        <a href="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>">
+                        Cart - <span class="cart-amunt"><?php echo wp_kses_post( WC()->cart->get_cart_subtotal() ); ?></span> 
+                        <i class="fa fa-shopping-cart"></i> <span class="product-count">
+                        <?php echo wp_kses_data( sprintf( _n( '%d item', '%d items', WC()->cart->get_cart_contents_count(), 'storefront' ), WC()->cart->get_cart_contents_count() ) ); ?>    
+                        </span></a>
                     </div>
                 </div>
             </div>
         </div>
     </div> <!-- End site branding area -->
-
-    <?php
-/**
- * Functions hooked into myshop_header action
- *
- * @hooked myshop_site_branding                    - 20
- * @hooked myshop_header_cart                      - 60
- */
-do_action( 'myshop_header' );
-?>
-
-    <header id="masthead" class="site-header" role="banner" style="<?php storefront_header_styles(); ?>">
-
-<?php
-/**
- * Functions hooked into storefront_header action
- *
- * @hooked storefront_header_container                 - 0
- * @hooked storefront_skip_links                       - 5
- * @hooked storefront_social_icons                     - 10
- * @hooked storefront_site_branding                    - 20
- * @hooked storefront_secondary_navigation             - 30
- * @hooked storefront_product_search                   - 40
- * @hooked storefront_header_container_close           - 41
- * @hooked storefront_primary_navigation_wrapper       - 42
- * @hooked storefront_primary_navigation               - 50
- * @hooked storefront_header_cart                      - 60
- * @hooked storefront_primary_navigation_wrapper_close - 68
- */
-do_action( 'storefront_header' );
-?>
-
-</header><!-- #masthead -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	<div class="mainmenu-area">
         <div class="container">
             <div class="row">
@@ -149,18 +117,24 @@ do_action( 'storefront_header' );
                         <span class="icon-bar"></span>
                     </button>
                 </div> 
-	<?php
-    /**
-	 * Hook: myshop_primary_top_menu.
-	 *
-	 * @hooked primary_top_menu - 10	
-	 */
-	do_action('myshop_primary_top_menu');
-       
+				<?php
+        wp_nav_menu( array(
+            'theme_location'    => 'primary',
+            'depth'             => 2,
+            'container'         => 'div',
+            'container_class'   => 'collapse navbar-collapse',
+            'container_id'      => 'bs-example-navbar-collapse-1',
+            'menu_class'        => 'nav navbar-nav',
+            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+            'walker'            => new WP_Bootstrap_Navwalker(),
+        ) );
         ?> 
             </div>
         </div>
-    </div> <!-- End mainmenu area -->   
+    </div> <!-- End mainmenu area -->
+
+
+    
 
 	<?php
 	/**
