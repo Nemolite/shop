@@ -47,7 +47,12 @@ function myshop_register_scripts() {
 add_action( 'wp_enqueue_scripts', 'myshop_register_scripts' );
 
 /**
- * Подключение файлы функции и хуков для хидер
+ * Подключение файла функции и хуков для header
  */
 require 'include/header-functions.php';
+
+/**
+ * Подключение файл функции и хуков для главной страницы
+ */
+require 'include/index-functions.php';
 ?>
