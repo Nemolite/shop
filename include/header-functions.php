@@ -65,6 +65,5 @@ wp_nav_menu( array(
   ) );
 }
 add_action( 'myshop_primary_top_menu', 'primary_top_menu', 10 );  
-
 ?>
 
