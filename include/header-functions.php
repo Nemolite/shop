@@ -48,26 +48,6 @@ register_nav_menus( array(
   }
 add_action( 'myshop_top_left_menu', 'top_left_menu', 10 );
 
-
- /**
-  * Вывод верхнего правого меню
-  */
-  function top_right_menu(){
-    wp_nav_menu( [
-      'theme_location'  => 'top_right',     
-      'depth'             => 2,
-      'container'         => 'div',
-      'container_class'   => 'header-right',
-      'container_id'      => '',
-      'menu_class'        => 'list-unstyled list-inline',
-      'items_wrap'=>'<ul class="%1$s">%3$s</ul>',
-      'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-      'walker'            => new WP_Bootstrap_Navwalker(),
-    ] );
-
-  }
-add_action( 'myshop_top_right_menu', 'top_right_menu', 10 );
-
 /**
 * Вывод главного меню
 */

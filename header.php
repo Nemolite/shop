@@ -43,25 +43,6 @@
                 </div>
           
                 <div class="col-md-4">
-
-
-                    
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
                     <div class="header-right">
 
                         <ul class="list-unstyled list-inline">
@@ -83,30 +64,7 @@
                                 </ul>
                             </li>
                         </ul>
-                    </div>
-
-                    <div class="header-right">
-                    <?php 
-    /**
-	 * Hook: myshop_top_right_menu.
-	 *
-	 * @hooked top_right_menu - 10	
-	 */
-	do_action('myshop_top_right_menu');
-    ?>
-                    <?php 
-    /**
-	 * Hook: myshop_top_right_menu.
-	 *
-	 * @hooked top_right_menu - 10	
-	 */
-	do_action('myshop_top_right_menu');
-    ?>
-                    </div>
-
-                
- 
-
+                    </div> 
                 </div>
             </div>
         </div>
