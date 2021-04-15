@@ -7,9 +7,7 @@ Author URI:     http: //vandraren.ru/
 Template:       storefront
 Version:        1.0.0
 */
-.test3 {
-  border: 1px solid red;
-}
+
 /*
 основные стили шаблона
 */
@@ -259,6 +257,7 @@ body {
 .slide-text h2 {
   font-size: 45px;
   font-weight: 200;
+  color: #fff;
 }
 
 .slide-content {
