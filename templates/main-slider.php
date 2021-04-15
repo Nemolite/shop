@@ -3,7 +3,7 @@
  * Шаблон слайдера successes
  */
 ?>
-   <div class="slider-area">
+  <div class="slider-area">
         <div class="zigzag-bottom"></div>
         <div id="slide-list" class="carousel carousel-fade slide" data-ride="carousel">
             
@@ -87,3 +87,4 @@
             </div>
 
         </div>        
+    </div> <!-- End slider area -->
