@@ -18,4 +18,9 @@ get_header();
  */
 get_template_part( 'templates/main', 'slider' ); 
 
+/**
+ * Middele row baners
+ */
+get_template_part( 'templates/middle', 'baners' ); 
+
 get_footer();
