@@ -23,4 +23,9 @@ get_template_part( 'templates/main', 'slider' );
  */
 get_template_part( 'templates/middle', 'baners' ); 
 
+/**
+ *  Latest Products
+ */
+get_template_part( 'templates/latest', 'products' ); 
+
 get_footer();
