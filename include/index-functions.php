@@ -37,3 +37,9 @@ function myshop_main_slider(){
 }
 
 add_action('init', 'myshop_main_slider');
+
+/**
+ * Формат вывода миниатюры товвара
+ */
+
+add_image_size( 'myshop-product-preview', 212, 271, true );
