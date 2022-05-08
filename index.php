@@ -28,4 +28,9 @@ get_template_part( 'templates/middle', 'baners' );
  */
 get_template_part( 'templates/latest', 'products' ); 
 
+/**
+ *  Brands
+ */
+get_template_part( 'templates/slider', 'brends' ); 
+
 get_footer();
