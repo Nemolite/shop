@@ -33,4 +33,9 @@ get_template_part( 'templates/latest', 'products' );
  */
 get_template_part( 'templates/slider', 'brends' ); 
 
+/**
+ *  Блоки Top Sellers,  Recently Viewed,  Top New
+ */
+get_template_part( 'templates/products', 'sellers' ); 
+
 get_footer();
