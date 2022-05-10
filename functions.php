@@ -15,7 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 function myshop_register_styles() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
-	
+
+
 	wp_enqueue_style( 'bootstrap', get_stylesheet_directory_uri() . '/assets/css/bootstrap.min.css', array(), $theme_version );
 	wp_enqueue_style( 'font-awesome', get_stylesheet_directory_uri() . '/assets/css/font-awesome.min.css', array(), $theme_version );
 	wp_enqueue_style( 'owl-carousel', get_stylesheet_directory_uri() . '/assets/css/owl.carousel.css', array(), $theme_version );
@@ -25,6 +26,14 @@ function myshop_register_styles() {
 }
 
 add_action( 'wp_enqueue_scripts', 'myshop_register_styles' );
+
+function del_styles_method() {	
+    wp_dequeue_style( 'storefront-icons' );
+    wp_deregister_style( 'storefront-icons' );
+    wp_enqueue_style( 'storefront-icons', get_stylesheet_directory_uri() . '/assets/css/icons.css' );
+}
+
+add_action( 'wp_enqueue_scripts', 'del_styles_method', 0 );
 
 /**
  * Подключение скриптов для дочерней темы
