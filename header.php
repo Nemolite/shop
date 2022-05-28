@@ -135,10 +135,6 @@
             </div>
         </div>
     </div> <!-- End mainmenu area -->
-
-
-    
-
 	<?php
 	/**
 	 * Functions hooked in to storefront_before_content

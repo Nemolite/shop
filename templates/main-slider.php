@@ -36,7 +36,9 @@ if( $query->have_posts() ){
 
 <div class="item <?php echo $active[$index]?>">
     <div class="single-slide">
-        <div class="slide-bg slide-<?php echo $slide[$index]?>"></div>
+        <div class="slide-bg" 
+            style="background-image: url(<?php echo get_the_post_thumbnail_url();?>);">
+        </div>
         <div class="slide-text-wrapper">
             <div class="slide-text">
                 <div class="container">

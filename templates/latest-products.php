@@ -31,11 +31,11 @@
                                     <img src="<?php echo get_the_post_thumbnail_url();?>" alt="">
                                     <div class="product-hover">
                                         <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                        <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                        <a href="<?php the_permalink(); ?>" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                                     </div>
                                 </div>
                                 
-                                <h2><a href="single-product.html"><?php the_title();?></a></h2>
+                                <h2><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h2>
                                 
                                 <div class="product-carousel-price">
                                     <ins>
