@@ -211,6 +211,7 @@ register_nav_menus( array(
     'top_left' => __( 'Top Left Menu', 'Левое верхнее меню' ),
     'top_right'=>__('Top Right Menu','Правое верхнее меню' ),
 	'footer_category'=>__('Footer Category Menu','Меню категории в футере' ),
+	'user_navigation'=>__('Footer User Menu','Меню в футере user' ),
 ) );
 
  /**

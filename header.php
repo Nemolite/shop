@@ -100,7 +100,19 @@
 			   
 			   <div class="col-sm-6">
 				   <div class="shopping-item">
-					   <a href=" http://shop.local/cart/">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+					   <a href="<?php echo esc_url( wc_get_cart_url() ); ?>">
+						Cart - <span class="cart-amunt">
+									<?php 
+										echo WC()->cart->get_cart_subtotal();
+									?>
+						</span> 
+						<i class="fa fa-shopping-cart"></i> 
+							<span class="product-count">
+							<?php
+							echo WC()->cart->get_cart_contents_count();
+							?>
+							</span>
+						</a>
 				   </div>
 			   </div>
 		   </div>

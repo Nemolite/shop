@@ -30,15 +30,31 @@
                 
                 <div class="col-md-3 col-sm-6">
                     <div class="footer-menu">
-                        <h2 class="footer-wid-title">User Navigation </h2>
-                        <ul>
-                            <li><a href="#">My account</a></li>
-                            <li><a href="#">Order history</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Vendor contact</a></li>
-                            <li><a href="#">Front page</a></li>
-                        </ul>                        
-                    </div>
+                        <h2 class="footer-wid-title">User Navigation </h2>                       
+                    </div>    
+                        <?php
+      
+						wp_nav_menu( [
+							'theme_location'  => 'user_navigation',
+							'menu'            => '', 
+							'container'       => 'div', 
+							'container_class' => 'footer-menu', 
+							'container_id'    => '',
+							'menu_class'      => '', 
+							'menu_id'         => '',
+							'echo'            => true,
+							'fallback_cb'     => 'wp_page_menu',
+							'before'          => '',
+							'after'           => '',
+							'link_before'     => '',
+							'link_after'      => '',
+							'items_wrap'      => '<ul>%3$s</ul>',
+							'depth'           => 0,
+							'walker'          => '',
+						] );
+
+					?>
+ 
                 </div>
                 
                 <div class="col-md-3 col-sm-6">

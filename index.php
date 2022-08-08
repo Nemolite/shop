@@ -158,7 +158,7 @@ get_header();
                                 <div class="product-f-image">
                                     <img src="<?php echo get_the_post_thumbnail_url();?>" alt="">
                                     <div class="product-hover">
-                                        <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                        <a href="<?php echo get_home_url(); ?>/?add-to-cart=<?php echo get_the_ID();?>" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                         <a href="<?php the_permalink(); ?>" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                                     </div>
                                 </div>
@@ -181,6 +181,7 @@ get_header();
                                     echo " ";
                                     echo $currency_symbol;
                                     ?>
+                                     
                                     </del>
                                 </div> 
                             </div>
