@@ -95,10 +95,27 @@
                         <h2 class="footer-wid-title">Newsletter</h2>
                         <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
                         <div class="newsletter-form">
-                            <form action="#">
-                                <input type="email" placeholder="Type your email">
-                                <input type="submit" value="Subscribe">
-                            </form>
+                        <form method="post" action="http://myshop.vandraren.ru/" onsubmit="return BFTValidate(this);">
+                                <input type="email" placeholder="Type your email" required name="email">
+                                <input type="submit" value="Subscribe" class="bft-button">
+                                <input type="hidden" name="bft" value="register">
+                        </form>
+                        
+                            <script type="text/javascript" >
+                            function BFTValidate(frm) {
+                                        
+                                
+                                var email = frm.email.value;
+                                if(email=="" || email.indexOf("@")<1 ||email.indexOf(".")<1) {
+                                    alert("Please fill in valid email address");
+                                    frm.email.focus();
+                                    return false;
+                                }
+                                
+                                    
+                                return true;
+                            }
+                            </script>
                         </div>
                     </div>
                 </div>
