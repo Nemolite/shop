@@ -33,7 +33,9 @@
 	<?php wp_head(); ?>
   </head>
   <body>
-   
+   <div class="attention">
+	<h1>Сайт создан в учебных целях в рамках рабочей программы образовательного учреждения</h1>
+   </div>
    <div class="header-area">
 	   <div class="container">
 		   <div class="row">

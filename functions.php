@@ -256,3 +256,19 @@ wp_nav_menu( array(
       'walker'            => new WP_Bootstrap_Navwalker(),
   ) );
 }
+
+/**
+ * Option Tree
+ */
+/**
+ * Required: set 'ot_theme_mode' filter to true.
+ */
+//add_filter( 'ot_theme_mode', '__return_true' );
+
+/**
+ * Required: include OptionTree.
+ */
+require( trailingslashit( get_template_directory() ) . '/option-tree/ot-loader.php' );
+require( trailingslashit( get_template_directory() ) . '/option-tree/assets/theme-mode/meta-boxes.php' );
+require( trailingslashit( get_template_directory() ) . '/option-tree/assets/theme-mode/theme-options.php' );
+
