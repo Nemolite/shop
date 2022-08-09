@@ -50,10 +50,14 @@ function custom_theme_options() {
 				'id'    => 'slider_to_main',
 				'title' => __( 'Слайдер на главной', 'theme-text-domain' ),
 			),
+			array(
+				'id'    => 'social_to_footer',
+				'title' => __( 'Ссылки на социальные сети в футере', 'theme-text-domain' ),
+			),
 		),
 		'settings'        => array(
 			/**
-			 * Baners to main
+			 * Slider to main
 			 */
 			array(
 				'id'           => 'main_slide_1',
@@ -81,6 +85,50 @@ function custom_theme_options() {
 				'operator'     => 'and',
 			),
 
+			/**
+			 * Ссылки на социальные сети в футере
+			 */
+			array(
+				'id'           => 'facebook',
+				'label'        => __( 'facebook', 'theme-text-domain' ),
+				'desc'         => __( 'Ссылка на facebook', 'theme-text-domain' ),	
+				'type'         => 'text',
+				'section'      => 'social_to_footer',
+				'operator'     => 'and',
+			),
+			array(
+				'id'           => 'twitter',
+				'label'        => __( 'twitter', 'theme-text-domain' ),
+				'desc'         => __( 'Ссылка на twitter', 'theme-text-domain' ),
+				'type'         => 'text',
+				'section'      => 'social_to_footer',
+				'operator'     => 'and',
+			),
+			array(
+				'id'           => 'youtube',
+				'label'        => __( 'youtube', 'theme-text-domain' ),
+				'desc'         => __( 'Ссылка на youtube', 'theme-text-domain' ),
+				'type'         => 'text',
+				'section'      => 'social_to_footer',
+				'operator'     => 'and',
+			),
+			array(
+				'id'           => 'linkedin',
+				'label'        => __( 'linkedin', 'theme-text-domain' ),
+				'desc'         => __( 'Ссылка на linkedin', 'theme-text-domain' ),
+				'type'         => 'text',
+				'section'      => 'social_to_footer',
+				'operator'     => 'and',
+			),
+
+			array(
+				'id'           => 'pinterest',
+				'label'        => __( 'pinterest', 'theme-text-domain' ),
+				'desc'         => __( 'Ссылка на pinterest', 'theme-text-domain' ),
+				'type'         => 'text',
+				'section'      => 'social_to_footer',
+				'operator'     => 'and',
+			),
 			
 			/**
 			 * Demo

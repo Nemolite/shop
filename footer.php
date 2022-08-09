@@ -19,11 +19,19 @@
                         <h2>e<span>Electronics</span></h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
                         <div class="footer-social">
-                            <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
+                            <?php
+                            $facebook = ot_get_option( 'facebook' )?ot_get_option( 'facebook' ):"#";
+                            $twitter = ot_get_option( 'twitter' )?ot_get_option( 'twitter' ):"#";
+                            $youtube = ot_get_option( 'youtube' )?ot_get_option( 'youtube' ):"#";
+                            $linkedin = ot_get_option( 'linkedin' )?ot_get_option( 'linkedin' ):"#";
+                            $pinterest = ot_get_option( 'pinterest' )?ot_get_option( 'pinterest' ):"#";
+                            
+                            ?>
+                            <a href="<?php echo esc_url($facebook);?>" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="<?php echo esc_url($twitter);?>" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a href="<?php echo esc_url($linkedin);?>" target="_blank"><i class="fa fa-youtube"></i></a>
+                            <a href="<?php echo esc_url($youtube);?>" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            <a href="<?php echo esc_url($pinterest);?>" target="_blank"><i class="fa fa-pinterest"></i></a>
                         </div>
                     </div>
                 </div>
