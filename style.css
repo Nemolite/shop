@@ -9,6 +9,7 @@ Version: 1.2.1
 Учебный проект для студентов
 
 */
+
 .attention {
 	width: 100%;
 	height: 40px;
@@ -18,6 +19,10 @@ Version: 1.2.1
 .attention h1{
    text-align: center;
    color: white;
+}
+
+.shop-title-product-color {
+	color: #1abc9c;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -712,7 +717,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   }
   
   .product-big-title-area {
-	background: url(img/crossword.png) repeat scroll 0 0 #1abc9c;
+	background: url(vendor/img/crossword.png) repeat scroll 0 0 #1abc9c;
   }
   
   .product-bit-title h2 {

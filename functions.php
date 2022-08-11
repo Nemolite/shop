@@ -99,6 +99,16 @@ function shop_setup() {
 			'flex-height' => true,
 		)
 	);
+
+	add_theme_support(
+		'shop-product-img',
+		array(
+			'height'      => 262,
+			'width'       => 335,
+			'flex-width'  => true,
+			'flex-height' => true,
+		)
+	);
 }
 add_action( 'after_setup_theme', 'shop_setup' );
 
@@ -271,4 +281,76 @@ wp_nav_menu( array(
 require( trailingslashit( get_template_directory() ) . '/option-tree/ot-loader.php' );
 require( trailingslashit( get_template_directory() ) . '/option-tree/assets/theme-mode/meta-boxes.php' );
 require( trailingslashit( get_template_directory() ) . '/option-tree/assets/theme-mode/theme-options.php' );
+
+/**
+ * woocommerce
+ */
+
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 ); 
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 ); 
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+
+add_action('woocommerce_before_shop_loop_item_title','shop_woocommerce_template_loop_product_thumbnail',10);
+
+if ( ! function_exists( 'shop_woocommerce_template_loop_product_thumbnail' ) ) {
+	function shop_woocommerce_template_loop_product_thumbnail(){
+		?>
+		 <div class="product-upper">
+		<?php
+		echo the_post_thumbnail();
+		?>
+		</div>
+		<?php
+	}
+}
+
+remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 ); 
+
+add_action('woocommerce_shop_loop_item_title','shop_woocommerce_template_loop_product_title',10);
+
+if ( ! function_exists( 'shop_woocommerce_template_loop_product_title' ) ) {
+	function shop_woocommerce_template_loop_product_title(){
+		?>
+		<h2 class="shop-title-product-color">
+			
+				<?php the_title();?>
+			
+		</h2>
+		<?php
+	}
+}
+
+remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
+
+add_action('woocommerce_after_shop_loop_item_title','shop_woocommerce_template_loop_price',10);
+
+if ( ! function_exists( 'shop_woocommerce_template_loop_price' ) ) {
+	function shop_woocommerce_template_loop_price(){
+		?>
+		<div class="product-carousel-price">
+			<ins>
+				<?php
+					$product = wc_get_product(get_the_ID());
+					$thePrice = $product->get_price(); 
+					echo $thePrice;
+					echo " ";
+					$currency_symbol = html_entity_decode( get_woocommerce_currency_symbol() );
+					echo $currency_symbol;
+				?>
+			</ins> 
+			<del>
+				<?php
+					echo $product->get_price();
+					echo " ";
+					echo $currency_symbol;
+				?>
+										
+			</del>
+        </div> 
+		<?php
+	}
+}
+
 
