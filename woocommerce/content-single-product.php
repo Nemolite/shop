@@ -119,21 +119,28 @@ global $product;
                             
                             <div class="col-sm-6">
                                 <div class="product-inner">
-                                    <h2 class="product-name">Sony Smart TV - 2015</h2>
+                                    <h2 class="product-name">
+									<?php 
+									/**
+									 * Hook: shop_wc_single_product_title.							
+									 * 
+									 * @hooked woocommerce_template_single_title - 10							 
+									 */
+									do_action('shop_wc_single_product_title');
+									?>
+									</h2>
                                     <div class="product-inner-price">
-                                        <ins>$700.00</ins> <del>$800.00</del>
+									<?php 
+									/**
+									 * Hook: shop_wc_single_product_summary.							
+									 * 
+									 * @hooked shop_woocommerce_template_loop_price - 10							 
+									 */
+									do_action( 'shop_wc_single_product_summary' );
+									?>
+									
                                     </div>    
-                                    
-                                    <form action="" class="cart">
-                                        <div class="quantity">
-                                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
-                                        </div>
-                                        <button class="add_to_cart_button" type="submit">Add to cart</button>
-                                    </form>   
-                                    
-                                    <div class="product-inner-category">
-                                        <p>Category: <a href="">Summer</a>. Tags: <a href="">awesome</a>, <a href="">best</a>, <a href="">sale</a>, <a href="">shoes</a>. </p>
-                                    </div> 
+                                   
                                     
                                     <div role="tabpanel">
                                         <ul class="product-tab" role="tablist">
@@ -143,9 +150,14 @@ global $product;
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane fade in active" id="home">
                                                 <h2>Product Description</h2>  
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, diam in consequat iaculis, est purus iaculis mauris, imperdiet facilisis ante ligula at nulla. Quisque volutpat nulla risus, id maximus ex aliquet ut. Suspendisse potenti. Nulla varius lectus id turpis dignissim porta. Quisque magna arcu, blandit quis felis vehicula, feugiat gravida diam. Nullam nec turpis ligula. Aliquam quis blandit elit, ac sodales nisl. Aliquam eget dolor eget elit malesuada aliquet. In varius lorem lorem, semper bibendum lectus lobortis ac.</p>
-
-                                                <p>Mauris placerat vitae lorem gravida viverra. Mauris in fringilla ex. Nulla facilisi. Etiam scelerisque tincidunt quam facilisis lobortis. In malesuada pulvinar neque a consectetur. Nunc aliquam gravida purus, non malesuada sem accumsan in. Morbi vel sodales libero.</p>
+                                                <?php 
+												/**
+												 * Hook: shop_wc_single_product_description.							
+												 * 
+												 * @hooked woocommerce_template_single_excerpt - 10							 
+												 */
+												do_action( 'shop_wc_single_product_description' );
+												?>
                                             </div>
                                             <div role="tabpanel" class="tab-pane fade" id="profile">
                                                 <h2>Reviews</h2>
@@ -155,13 +167,14 @@ global $product;
                                                     <div class="rating-chooser">
                                                         <p>Your rating</p>
 
-                                                        <div class="rating-wrap-post">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
+														<?php 
+													/**
+													 * Hook: shop_wc_single_product_rating.							
+													 * 
+													 * @hooked woocommerce_template_single_rating - 10							 
+													 */
+													do_action( 'shop_wc_single_product_rating' );
+													?>
                                                     </div>
                                                     <p><label for="review">Your review</label> <textarea name="review" id="" cols="30" rows="10"></textarea></p>
                                                     <p><input type="submit" value="Submit"></p>

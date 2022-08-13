@@ -423,4 +423,22 @@ if ( ! function_exists( 'shop_woocommerce_product_thumbnails_html' ) ) {
 }
 
 
+add_action('shop_wc_single_product_title','woocommerce_template_single_title',10);
 
+
+/**
+ * Цена товара, Добавить в корзину, Мета, 
+ */
+add_action('shop_wc_single_product_summary','shop_woocommerce_template_loop_price',10);
+add_action('shop_wc_single_product_summary','woocommerce_template_single_add_to_cart',20);
+add_action('shop_wc_single_product_summary','woocommerce_template_single_meta',30);
+
+/**
+ * Описание товара
+ */
+add_action('shop_wc_single_product_description','woocommerce_template_single_excerpt',10);
+
+/**
+ * Рейтинг
+ */
+add_action('shop_wc_single_product_rating','woocommerce_template_single_rating',10);
