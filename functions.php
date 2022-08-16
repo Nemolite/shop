@@ -442,3 +442,22 @@ add_action('shop_wc_single_product_description','woocommerce_template_single_exc
  * Рейтинг
  */
 add_action('shop_wc_single_product_rating','woocommerce_template_single_rating',10);
+
+/**
+ * Изменение количество выводимых товаров
+ * Сейчас выводится 8
+ */
+
+ /**
+  * WC: change products per page
+  * @return int
+  */
+function shop_loop_per_page() {
+	if (is_shop()){
+		return 8; //return any number, -1 === show all
+	} else {
+		return -1;
+	}
+    
+};
+add_filter('loop_shop_per_page', 'shop_loop_per_page', 10, 0);

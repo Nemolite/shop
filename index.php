@@ -154,7 +154,7 @@ get_header();
 
                             <?php
                             $query_args = array(
-                                'showposts'   => 6,
+                                'showposts'   => 12, // Количество выводимых товаров
                                 'post_status' => 'publish',
                                 'post_type'   => 'product',
                                 'orderby'     => 'date',
