@@ -14,14 +14,19 @@ get_header();
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'shop' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
+			<div class="product-big-title-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="product-bit-title text-center">                        
+								<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
+									<h2><?php woocommerce_page_title(); ?></h2>
+								<?php endif; ?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
 			<?php
 			/* Start the Loop */
@@ -32,8 +37,11 @@ get_header();
 				 * Run the loop for the search to output the results.
 				 * If you want to overload this in a child theme then include a file
 				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+				 */					
+				
+				//	get_template_part( 'template-parts/content', 'search' );
+				
+				get_template_part( 'template-parts/product', 'search' );				
 
 			endwhile;
 
