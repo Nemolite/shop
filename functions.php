@@ -452,3 +452,9 @@ function shop_loop_per_page() {
     
 };
 add_filter('loop_shop_per_page', 'shop_loop_per_page', 10, 0);
+
+/**
+ * Регистрируем новый размер изображения
+ * false - обрезка с сохранением пропорции
+ */
+add_image_size( 'sidebar-image-single-product', 63, 57, false );

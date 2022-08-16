@@ -48,7 +48,7 @@ global $product;
                                     $r->the_post();
                             ?>
                                 <div class="thubmnail-recent">
-                                    <img width="63" height="57" class="recent-thumb" src="<?php echo wp_get_attachment_image_url( get_post_thumbnail_id(), array(63, 57), false );?>" alt="">
+                                    <img width="63" height="57" class="recent-thumb" src="<?php echo wp_get_attachment_image_url( get_post_thumbnail_id(), 'sidebar-image-single-product', false );?>" alt="">
                                     <h2><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h2>
                                     <div class="product-sidebar-price">
                                         <ins>
@@ -94,13 +94,7 @@ global $product;
                                 while ( $r->have_posts() ) {
                                     $r->the_post();
                             ?>
-
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-
+                            <li><a href="<?php the_permalink(); ?>"><?php the_title();?></a></li>                            
                             <?php
                                 }
                             }
