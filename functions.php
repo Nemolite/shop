@@ -100,15 +100,6 @@ function shop_setup() {
 		)
 	);
 
-	add_theme_support(
-		'shop-product-img',
-		array(
-			'height'      => 262,
-			'width'       => 335,
-			'flex-width'  => true,
-			'flex-height' => true,
-		)
-	);
 }
 add_action( 'after_setup_theme', 'shop_setup' );
 

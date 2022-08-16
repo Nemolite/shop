@@ -34,44 +34,80 @@ global $product;
                     
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Products</h2>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                    </div>
+                            <?php
+                            $query_args = array(
+                                'showposts'   => 4, 
+                                'post_status' => 'publish',
+                                'post_type'   => 'product',
+                                'orderby'     => 'date',
+                                'order'       => 'DESC',
+                            );
+                                $r = new WP_Query( $query_args );
+                            if ( $r->have_posts() ) {
+                                while ( $r->have_posts() ) {
+                                    $r->the_post();
+                            ?>
+                                <div class="thubmnail-recent">
+                                    <img width="63" height="57" class="recent-thumb" src="<?php echo wp_get_attachment_image_url( get_post_thumbnail_id(), array(63, 57), false );?>" alt="">
+                                    <h2><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h2>
+                                    <div class="product-sidebar-price">
+                                        <ins>
+                                        <?php
+                                        $product = wc_get_product(get_the_ID());
+                                        $thePrice = $product->get_price(); 
+                                        echo $thePrice;
+                                        echo " ";
+                                        $currency_symbol = html_entity_decode( get_woocommerce_currency_symbol() );
+                                        echo $currency_symbol;
+                                        ?>
+                                        </ins>
+                                        <del>
+                                        <?php
+                                        echo $product->get_price();
+                                        echo " ";
+                                        echo $currency_symbol;
+                                        ?>                                    
+                                        </del>
+                                    </div>                             
+                                </div>
+                            <?php
+                                }
+                            }
+                            wp_reset_postdata();
+                            ?>
+                    </div><!-- class="single-sidebar" -->
                     
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Recent Posts</h2>
                         <ul>
+
+                            <?php
+                            $query_args = array(
+                                'showposts'   => 5, 
+                                'post_status' => 'publish',
+                                'post_type'   => 'product',
+                                'orderby'     => 'date',
+                                'order'       => 'DESC',
+                            );
+                                $r = new WP_Query( $query_args );
+                            if ( $r->have_posts() ) {
+                                while ( $r->have_posts() ) {
+                                    $r->the_post();
+                            ?>
+
                             <li><a href="">Sony Smart TV - 2015</a></li>
                             <li><a href="">Sony Smart TV - 2015</a></li>
                             <li><a href="">Sony Smart TV - 2015</a></li>
                             <li><a href="">Sony Smart TV - 2015</a></li>
                             <li><a href="">Sony Smart TV - 2015</a></li>
+
+                            <?php
+                                }
+                            }
+                            wp_reset_postdata();
+                            ?>
+
+
                         </ul>
                     </div>
                 </div>
@@ -196,8 +232,8 @@ global $product;
                             $query_args = array(
                                 'showposts'   => 4, // Количество выводимых товаров
                                 'post_status' => 'publish',
-                                'post_type'   => 'product',
-                                'orderby'     => 'date',
+                                'post_type'   => 'product', 
+                                'orderby'     => 'rand', // случайные посты
                                 'order'       => 'DESC',
                             );
                                 $related = new WP_Query( $query_args );

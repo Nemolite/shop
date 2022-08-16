@@ -186,13 +186,13 @@ get_header();
                                     $currency_symbol = html_entity_decode( get_woocommerce_currency_symbol() );
                                     echo $currency_symbol;
                                     ?>
-                                    </ins> <del>
+                                    </ins>
+                                    <del>
                                     <?php
                                     echo $product->get_price();
                                     echo " ";
                                     echo $currency_symbol;
-                                    ?>
-                                     
+                                    ?>                                    
                                     </del>
                                 </div> 
                             </div>
