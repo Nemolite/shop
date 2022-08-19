@@ -24,7 +24,19 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<div class="col-md-3 col-sm-6">
+<?php
+if (!is_cart()){
+?>  		
+   <div class="col-md-3 col-sm-6">
+<?php
+}else{
+?>        		
+	<div class="col-md-6 col-sm-6">
+<?php
+}
+?>
+	
+	
 	<div class="single-shop-product">
 	<?php
 	/**
@@ -75,7 +87,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	<?php
 	do_action( 'woocommerce_after_shop_loop_item' );
 	?>
-	</div>
+		</div><!-- class="col-md-3 col-sm-6"-->
 	<?php
 	?>
 	</div>

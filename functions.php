@@ -290,7 +290,16 @@ if ( ! function_exists( 'shop_woocommerce_template_loop_product_thumbnail' ) ) {
 		?>
 		 <div class="product-upper">
 		<?php
-		echo the_post_thumbnail();
+		/**
+		 * Работа с размерами выводимого изображения
+		 */
+		if (is_cart()){
+			echo the_post_thumbnail(array(150,150));
+		}else{
+			echo the_post_thumbnail();
+		}
+		
+
 		?>
 		</div>
 		<?php
