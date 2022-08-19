@@ -458,3 +458,25 @@ add_filter('loop_shop_per_page', 'shop_loop_per_page', 10, 0);
  * false - обрезка с сохранением пропорции
  */
 add_image_size( 'sidebar-image-single-product', 63, 57, false );
+
+/**
+ * Cart
+ */
+add_action('woocommerce_before_cart','shop_woocommerce_before_cart_html',10);
+function shop_woocommerce_before_cart_html(){
+	?>
+	<div class="single-product-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+	<?php
+}
+
+add_action('woocommerce_after_cart','shop_woocommerce_after_cart_html',10);
+function shop_woocommerce_after_cart_html(){
+	?>
+			</div><!-- class="row" -->
+		</div><!-- class="container" -->
+	</div><!-- class="single-product-area" -->
+	<?php
+}

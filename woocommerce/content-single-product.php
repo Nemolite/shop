@@ -101,7 +101,7 @@ global $product;
 
                         </ul>
                     </div>
-                </div>
+                </div><!-- class="col-md-4" -->
                 
                 <div class="col-md-8">
                     <div class="product-content-right">

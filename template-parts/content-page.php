@@ -10,10 +10,15 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
-
+	<?php
+	if (!is_cart()){
+	?>
+		<header class="entry-header">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</header><!-- .entry-header -->
+	<?php
+	}
+	?>
 	<?php shop_post_thumbnail(); ?>
 
 	<div class="entry-content">
@@ -29,7 +34,7 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<?php if ( get_edit_post_link() ) : ?>
+	<?php if ( get_edit_post_link()&&(!is_cart()) ) : ?>
 		<footer class="entry-footer">
 			<?php
 			edit_post_link(
