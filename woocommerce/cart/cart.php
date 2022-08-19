@@ -44,30 +44,29 @@ defined( 'ABSPATH' ) || exit;
  */
 do_action( 'woocommerce_before_cart' ); ?>
 
-
 <div class="col-md-4">
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Search Products</h2>
-                        <?php get_search_form(); ?>
-                    </div>
+    <div class="single-sidebar">
+        <h2 class="sidebar-title">Search Products</h2>
+        <?php get_search_form(); ?>
+    </div><!-- class="single-sidebar" -->
                     
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Products</h2>
-                            <?php
-                            $query_args = array(
-                                'showposts'   => 4, 
-                                'post_status' => 'publish',
-                                'post_type'   => 'product',
-                                'orderby'     => 'date',
-                                'order'       => 'DESC',
-                            );
-                                $r = new WP_Query( $query_args );
-                            if ( $r->have_posts() ) {
-                                while ( $r->have_posts() ) {
-                                    $r->the_post();
-                            ?>
-                                <div class="thubmnail-recent">
-                                    <img width="63" height="57" class="recent-thumb" src="<?php echo wp_get_attachment_image_url( get_post_thumbnail_id(), 'sidebar-image-single-product', false );?>" alt="">
+    <div class="single-sidebar">
+        <h2 class="sidebar-title">Products</h2>
+            <?php
+                $query_args = array(
+                    'showposts'   => 4, 
+                    'post_status' => 'publish',
+                    'post_type'   => 'product',
+                    'orderby'     => 'date',
+                    'order'       => 'DESC',
+                );
+                $r = new WP_Query( $query_args );
+                    if ( $r->have_posts() ) {
+                        while ( $r->have_posts() ) {
+                            $r->the_post();
+            ?>
+	                        <div class="thubmnail-recent">
+                                <img width="63" height="57" class="recent-thumb" src="<?php echo wp_get_attachment_image_url( get_post_thumbnail_id(), 'sidebar-image-single-product', false );?>" alt="">
                                     <h2><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h2>
                                     <div class="product-sidebar-price">
                                         <ins>
@@ -94,41 +93,39 @@ do_action( 'woocommerce_before_cart' ); ?>
                             }
                             wp_reset_postdata();
                             ?>
-                    </div><!-- class="single-sidebar" -->
+    </div><!-- class="single-sidebar" -->
                     
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Recent Posts</h2>
-                        <ul>
+    <div class="single-sidebar">
+        <h2 class="sidebar-title">Recent Posts</h2>
+        <ul>
 
-                            <?php
-                            $query_args = array(
-                                'showposts'   => 5, 
-                                'post_status' => 'publish',
-                                'post_type'   => 'product',
-                                'orderby'     => 'date',
-                                'order'       => 'DESC',
-                            );
-                                $r = new WP_Query( $query_args );
-                            if ( $r->have_posts() ) {
-                                while ( $r->have_posts() ) {
-                                    $r->the_post();
-                            ?>
-                            <li><a href="<?php the_permalink(); ?>"><?php the_title();?></a></li>                            
-                            <?php
-                                }
-                            }
-                            wp_reset_postdata();
-                            ?>
+            <?php
+                $query_args = array(
+                    'showposts'   => 5, 
+                    'post_status' => 'publish',
+                    'post_type'   => 'product',
+                    'orderby'     => 'date',
+                    'order'       => 'DESC',
+                );
+                $r = new WP_Query( $query_args );
+                    if ( $r->have_posts() ) {
+                        while ( $r->have_posts() ) {
+                            $r->the_post();
+            ?>
+            <li><a href="<?php the_permalink(); ?>"><?php the_title();?></a></li>                            
+            <?php
+    		            }
+                    }
+                wp_reset_postdata();
+            ?>
 
+        </ul>
+    </div><!-- class="single-sidebar" -->
+</div><!-- class="col-md-4" -->
 
-                        </ul>
-                    </div>
-                </div><!-- class="col-md-4" -->
-
-				<div class="col-md-8">
-
-<form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
-	<?php do_action( 'woocommerce_before_cart_table' ); ?>
+<div class="col-md-8">
+	<form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
+		<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
 	<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
 		<thead>
@@ -154,6 +151,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 					?>
 					<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
 
+					    <!--  удаления-->
 						<td class="product-remove">
 							<?php
 								echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -170,6 +168,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 							?>
 						</td>
 
+						<!--  миниатюра изображения товара-->
 						<td class="product-thumbnail">
 						<?php
 						$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
@@ -182,6 +181,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 						</td>
 
+						<!--  название  товара-->
 						<td class="product-name" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
 						<?php
 						if ( ! $product_permalink ) {
@@ -202,12 +202,14 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 						</td>
 
+						<!--  стоимость  товара-->
 						<td class="product-price" data-title="<?php esc_attr_e( 'Price', 'woocommerce' ); ?>">
 							<?php
 								echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
 							?>
 						</td>
 
+						<!--  количество  товара-->
 						<td class="product-quantity" data-title="<?php esc_attr_e( 'Quantity', 'woocommerce' ); ?>">
 						<?php
 						if ( $_product->is_sold_individually() ) {
@@ -229,7 +231,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 						echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
 						?>
 						</td>
-
+						<!--  стоимость позиции товара с учетом количества -->
 						<td class="product-subtotal" data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>">
 							<?php
 								echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
@@ -248,13 +250,15 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 					<?php if ( wc_coupons_enabled() ) { ?>
 						<div class="coupon">
-							<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
+							<label for="coupon_code"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label> <input type="text" name="coupon_code" class="input-text" style="width: 100px;" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button" style="margin-left: 4px;" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
 							<?php do_action( 'woocommerce_cart_coupon' ); ?>
 						</div>
 					<?php } ?>
 
 					<button type="submit" class="button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
-
+					
+					<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
+					
 					<?php do_action( 'woocommerce_cart_actions' ); ?>
 
 					<?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
@@ -275,7 +279,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 		 * Cart collaterals hook.
 		 *
 		 * @hooked woocommerce_cross_sell_display
-		 * @hooked woocommerce_cart_totals - 10
+		 * @hooked woocommerce_cart_totals - 10 
 		 */
 		do_action( 'woocommerce_cart_collaterals' );
 	?>

@@ -2,3 +2,21 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     margin: 0 0 15px;
 }
+
+.shop-fix-btn {
+    background: none repeat scroll 0 0 #1abc9c;
+    border: medium none;
+    color: #fff;
+    padding: 13px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.shop-fix-btn:hover {
+    background: none repeat scroll 0 0 #222;
+    border: medium none;
+    color: #fff;
+    padding: 13px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+}

@@ -480,3 +480,9 @@ function shop_woocommerce_after_cart_html(){
 	</div><!-- class="single-product-area" -->
 	<?php
 }
+
+/**
+ * Перемещанем кнопку перейти к оформлению в cart
+ */
+//remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cart_totals', 10 ); 
+//add_action('woocommerce_cart_actions','woocommerce_cart_totals',10);
