@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
-	if (!is_cart()){
+	if (!is_cart()&&!is_checkout()){
 	?>
 		<header class="entry-header">
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
@@ -34,7 +34,7 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<?php if ( get_edit_post_link()&&(!is_cart()) ) : ?>
+	<?php if ( get_edit_post_link()&&(!is_cart())&&(!is_checkout()) ) : ?>
 		<footer class="entry-footer">
 			<?php
 			edit_post_link(

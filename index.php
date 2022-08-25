@@ -25,6 +25,7 @@ get_header();
 	background-image: url(<?php echo ot_get_option( 'main_slide_3' );?>);
   }
 </style>
+
 <div class="slider-area">
         <div class="zigzag-bottom"></div>
         <div id="slide-list" class="carousel carousel-fade slide" data-ride="carousel">

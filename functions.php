@@ -491,7 +491,6 @@ function shop_woocommerce_after_cart_html(){
 }
 
 /**
- * Перемещанем кнопку перейти к оформлению в cart
+ * Удаление строки о купоне на странице оформления заказа
  */
-//remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cart_totals', 10 ); 
-//add_action('woocommerce_cart_actions','woocommerce_cart_totals',10);
+remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 ); 
